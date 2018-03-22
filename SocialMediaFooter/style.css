@@ -1,0 +1,206 @@
+/* primitive way to reset style */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Use the downloaded generic icon */
+@font-face {
+    font-family: 'Genericons';
+    src: url('font/genericons-regular-webfont.woff')format('woff'),
+    url('font/genericons-regular-webfont.eot')format('truetype')
+}
+
+.container {
+    margin: 50px auto;
+    width: 90%;
+}
+
+header h1 {
+    color: #fff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* accordion box layout */
+.accordion {
+    background: #333;
+    width: 100%;
+    min-width: 800px;
+    display: block;
+    list-style-type: none;
+    overflow: hidden;
+    height: 200px;
+    font-size: 0;
+}
+
+/* basic style of the tab and transition setup */
+.tab {
+    display: inline-block;
+    background-color: #444;
+    border-right: #333 solid 1px;
+    /* The vertical tab size */
+    width: 80px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+
+    /* nice and smooth ease in and out */
+    transition: all 0.5s ease-in-out 0.1s;
+}
+
+/* hover extend the width of tabs */
+.tab:hover {
+    width: 450px;
+}
+
+/* push original tab over to left */
+.tab:hover .social a:before {
+    margin-left: -100px;
+}
+
+/* colored tab push right in */
+.tab:hover .social a:after {
+    margin-left: -5px;
+}
+
+/* tab background */
+.tab .content {
+    background: #fff;
+    width: 360px;
+    height: 200px;
+    /* display tab backgroud when tabsize changed */
+    /* The vertical tab size */
+    margin-left: 80px;
+    position: relative;
+    padding: 50px 0 0 15px;
+}
+
+/* text content style setup */
+.tab .content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.tab .content p {
+    font-size: 0.85rem;
+    line-height: 1.4rem;
+    padding-right: 30px;
+}
+
+/* display the genericons on tabs */
+/* and the style before hover on */
+.social a:before,
+.social a:after {
+    /* control the tab color change */
+    transition: all 0.4s ease-in-out 0.1s;
+    width: 80px;
+    height: 200px;
+    position: absolute;
+    text-indent: 0;
+    padding-top: 90px;
+    padding-left: 25px;
+    display: block;
+    font: normal 30px Genericons;
+    color: #fff;
+}
+
+/* reposition and resize the icon after hover on it */
+.social a:after {
+    font-size: 48px;
+    padding-left: 20px;
+    padding-top: 80px;
+    margin-left: 85px;
+}
+
+/* icon with style on the tab */
+.twitter a:before,
+.twitter a:after {
+    content: '\f202'
+}
+.twitter a:after {
+    background: #63ace5;
+}
+
+.github a:before,
+.github a:after {
+    content: '\f200'
+}
+.github a:after {
+    background: #8874a3 ;
+}
+
+.flickr a:before,
+.flickr a:after {
+    content: '\f211'
+}
+.flickr a:after {
+    background: #ff8b94;
+}
+
+.linkedin a:before,
+.linkedin a:after {
+    content: '\f208'
+}
+.linkedin a:after {
+    background: #3385c6 ;
+}
+
+.facebook a:before,
+.facebook a:after {
+    content: '\f203'
+}
+.facebook a:after {
+    background: #3b5998;
+}
+
+.youtube a:before,
+.youtube a:after {
+    content: '\f213'
+}
+.youtube a:after {
+    background: #ff2222;
+}
+
+/* make it responsive */
+/* mobile friendly */
+@media(max-width: 950px) {
+    .container {
+        width: 70%;
+    }
+    /* vertical display */
+    .tab {
+        display: block;
+        width: 100%;
+        border-bottom: 3px #333 solid;
+    }
+    .accordion {
+        display: block;
+        min-width: 450px;
+        height: auto;
+    }
+    .tab .content{
+        width: 85%;
+    }
+    .tab:hover {
+        width: 100%;
+    }
+}
+
+/* even more smaller screen */
+@media (max-width: 680px) {
+    .container {
+        width: 95%;
+    }
+    .accordion {
+        width: 100%;
+        min-width: 350px;
+    }
+}
